@@ -1,21 +1,23 @@
 import { HomePage } from "./pages/homepage/homepage.component";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "./App.scss";
 
-import Shop from './pages/shop/shop.component';
+import Shop from "./pages/shop/shop.component";
 import NavigationBar from "./components/navigation-bar/navigation-bar.component";
 
-export const SubMenu = ({match}) => {
+export const SubMenu = ({ match }) => {
   return <div>{match.params.subMenu}</div>;
 };
 
 function App() {
   return (
     <div>
-      <NavigationBar/>
-      <Route exact path="/" component={HomePage} />
-      <Route exact path='/shop' component={Shop} />
-      <Route exact path="/shop/:subMenu" component={SubMenu} />
+      <NavigationBar />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/shop" component={Shop} />
+        <Route exact path="/shop/:subMenu" component={SubMenu} />
+      </Switch>
     </div>
   );
 }
