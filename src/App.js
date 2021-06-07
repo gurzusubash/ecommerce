@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import "./App.scss";
 
 import Shop from './pages/shop/shop.component';
+import NavigationBar from "./components/navigation-bar/navigation-bar.component";
 
 export const SubMenu = ({match}) => {
   return <div>{match.params.subMenu}</div>;
@@ -11,6 +12,7 @@ export const SubMenu = ({match}) => {
 function App() {
   return (
     <div>
+      <NavigationBar/>
       <Route exact path="/" component={HomePage} />
       <Route exact path='/shop' component={Shop} />
       <Route exact path="/shop/:subMenu" component={SubMenu} />
